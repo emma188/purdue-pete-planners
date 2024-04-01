@@ -1,0 +1,37 @@
+<app-navbar></app-navbar>
+<button (click)="toggleWeekends()">no weekend</button>
+
+<full-calendar [options]="calendarOptions"></full-calendar>
+
+<mat-card>
+  <form (submit)="onSubmit(postForm)"  #postForm="ngForm">
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        name="title"
+        ngModel
+        required
+        minlength="3"
+        placeholder="Event Name"
+        #title="ngModel">
+      <mat-error *ngIf="title.invalid">Please enter a event name.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea
+        matInput
+        type="text"
+        name="content"
+        ngModel
+        required
+        minlength="2"
+        placeholder="Event Date"
+        #content="ngModel"></textarea>
+      <mat-error *ngIf="content.invalid">Please enter a date .</mat-error>
+    </mat-form-field>
+    <button (click)="refresh()"
+      mat-raised-button
+      color="accent"
+      type="submit">Save Post</button>
+  </form>
+</mat-card>

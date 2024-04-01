@@ -1,0 +1,87 @@
+
+<div class="card">
+    <h4 class="card-header">Event Creation</h4>
+    <div class="card-body">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <div class="form-group">
+                    <label for="eventName">Event Name</label>
+                    <input type="text" formControlName="eventName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.eventName.errors }" #name1/>
+                    <div *ngIf="submitted && f.eventName.errors" class="invalid-feedback">
+                        <div *ngIf="f.eventName.errors.required">An Event Name is required</div>
+                    </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-group">
+                    <label for="link">Event Link</label>
+                    <input type="text" formControlName="link" class="form-control"  #link1/>
+              </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-group">
+                    <label for="location">Event Location</label>
+                    <input type="text" formControlName="location" class="form-control"  #location1/>
+              </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-group">
+                    <label for="eventDescription">Event Description</label>
+                    <textarea formControlName="eventDescription" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.eventDescription.errors }" rows = "5" cols = "30" #desc1></textarea>
+                    <div *ngIf="submitted && f.eventDescription.errors" class="invalid-feedback">
+                        <div *ngIf="f.eventDescription.errors.required">An Event Description is required</div>
+                    </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-group">
+                    <label for="eventDate">Event Date</label>
+                    <input type="datetime-local" formControlName="eventDate" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.eventDate.errors }" #dTime1/>
+                    <div *ngIf="submitted && f.eventDate.errors" class="invalid-feedback">
+                        <div *ngIf="f.eventDate.errors.required">An Event Date is required</div>
+                    </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+                <label for="repeatChoice">Repeats:</label>
+                <select (change)="repeatChoiceHandler($event)">
+                    <option value=0>Never</option>
+                    <option value=1>Daily</option>
+                    <option value=2>Weekly</option>
+                    <option value=3>Monthly</option>
+                </select>
+            </div>
+
+
+            <!-- <button type="button" (click)="expanded=!expanded">Invite Users</button>
+            <div class="form-group" *ngIf="expanded">
+
+                <form class="example-form">
+                    <mat-form-field class="example-full-width">
+                      <mat-label>Search For Users</mat-label>
+                      <input matInput placeholder="Placeholder" #search>
+                    </mat-form-field>
+                    <app-table *ngIf="displaySearchResult" [data]='tableargs'></app-table>
+                </form>
+                <button type="button" (click)="getSearchValue(search.value)">Search!</button>
+            </div> -->
+
+
+            <div class="form-group">
+
+                <button [disabled]="form.invalid"  class="btn btn-primary">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+
+                    Submit
+                </button>
+
+            </div>
+        </form>
+    </div>
+</div>
+

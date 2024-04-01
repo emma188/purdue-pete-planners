@@ -1,0 +1,82 @@
+<app-navbar></app-navbar>
+<a class="button" routerLink="/schedule" routerLinkActive="activebutton">Go to schedule</a>
+
+<mat-card class="main-left">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title class="user-data">{{curUser?.user_name}}</mat-card-title>
+      <mat-card-subtitle>{{curUser?.email}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content class="user-data">
+      <ul class="user-fw-status">
+        <div><a class="button" routerLink="/friends" title="" routerLinkActive="activebutton">Friends</a></div>
+        <div><span>{{friendLen}}</span></div>
+        <div>
+          <a class="button" routerLink="/profile" title="" routerLinkActive="activebutton">View Profile</a>
+        </div>
+      </ul>
+    </mat-card-content>
+    <!--<mat-card-actions>
+      <button mat-button>LIKE</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions>-->
+</mat-card>
+
+<p>                              </p>
+
+<mat-card class="main-ws">
+  <mat-card-header>
+
+    <mat-card-title>Upcomming Due</mat-card-title>
+    <mat-card-subtitle><a class="button" routerLink="/schedule" title="" routerLinkActive="activebutton">View Schedule</a></mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-list *ngFor="let title of dueTitle; let i=index">
+      <mat-divider></mat-divider>
+      <mat-list-item>{{title}} due at {{dueDate[i]}}</mat-list-item>
+    </mat-list>
+  </mat-card-content>
+
+  <p>                              </p>
+  <mat-card-header>
+  <mat-card-title>Your Class</mat-card-title>
+  <mat-card-subtitle><a class="button" routerLink="/class" title="" routerLinkActive="activebutton">View Class</a></mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-list *ngFor="let class of classlist">
+      <mat-divider></mat-divider>
+      <mat-list-item>{{class}}</mat-list-item>
+    </mat-list>
+  </mat-card-content>
+  <!--<mat-card-actions>
+    <button mat-button>LIKE</button>
+    <button mat-button>SHARE</button>
+  </mat-card-actions>-->
+</mat-card>
+
+<mat-card class="main-right">
+  <mat-card-header>
+
+    <mat-card-title>Upcoming Event</mat-card-title>
+    <!--<mat-card-subtitle><a class="button" routerLink="/events" title="" routerLinkActive="activebutton">
+    View Schedule</a></mat-card-subtitle>-->
+    <a class="button" href="https://boilerlink.purdue.edu/events" title="#">homepage link</a>
+
+
+  </mat-card-header>
+  <mat-card-content>
+    <mat-list>
+      <mat-divider></mat-divider>
+      <mat-list-item>Tabling for Mental Health Action Week<a class="button" href="https://boilerlink.purdue.edu/event/6962296" title="#">: link</a></mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>Perspective PhD Student Panel Q&A<a class="button" href="https://boilerlink.purdue.edu/event/6951706" title="#">: link</a></mat-list-item>
+
+      <mat-divider></mat-divider>
+      <mat-list-item>Fundraising Push Day<a class="button" href="https://boilerlink.purdue.edu/event/6934808" title="#">: link</a></mat-list-item>
+    </mat-list>
+  </mat-card-content>
+  <!--<mat-card-actions>
+    <button mat-button>LIKE</button>
+    <button mat-button>SHARE</button>
+  </mat-card-actions>-->
+</mat-card>

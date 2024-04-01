@@ -1,0 +1,21 @@
+<mat-toolbar color="primary" class="navbar">
+    <div>PurduePete</div>
+    <div class="logo">
+      <a href="http://localhost:4200/home" title="">
+      <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
+      </a>
+    </div>
+    <div>
+      <a class="button" routerLink="/home" routerLinkActive="activebutton">Home</a>
+      <a class="button" routerLink="/profile" routerLinkActive="activebutton">Profile</a>
+      <a class="button" routerLink="/eventPage" routerLinkActive="activebutton">Event Page</a>
+      <a class="button" routerLink="/dining" routerLinkActive="activebutton">Dining</a>
+      <!-- <a class="button" routerLink="/schedule" routerLinkActive="activebutton">Schedule</a> -->
+      <a class="button" routerLink="/class" routerLinkActive="class">Class</a>
+      <a class="button" routerLink="/friends" routerLinkActive="class">Friends</a>
+      <a class="button" routerLink="/messaging" routerLinkActive="class">Messaging</a>
+      <a class="button" routerLink="/studygroup" routerLinkActive="activebutton">Study Group</a>
+      <a class="button" routerLink="/gensearch" routerLinkActive="activebutton">Search</a>
+      <a class="button" [routerLink]="" (click)="logout()">Logout</a>
+    </div>
+</mat-toolbar>

@@ -1,0 +1,93 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div>
+    <div class="btn-holder">
+      <button mat-raised-button mat-button color="primary" (click)="gotoCreateEvent()">
+        Create Event
+      </button>
+    </div>
+    <h1 class = "custom_header">My Events</h1>
+    <mat-tab-group >
+      <mat-tab *ngFor="let tab of tabs; let index = index" [label]="tab.name">
+          <p>Description: {{tab.description}} </p>
+          <p>Event Time: {{tab.Time}}</p>
+          <p>Link: {{tab.link}}</p>
+          <p>Location: {{tab.location}}</p>
+          <div class="btn-holder">
+            <button mat-raised-button mat-button color="primary"
+                class = "deleteClassBtn"
+                [disabled]="tabs.length === 0"
+                (click)="sendID(tab._id)">
+                Edit/Invite
+            </button>
+            <button mat-raised-button mat-button color="warn"
+                class = "deleteClassBtn"
+                [disabled]="tabs.length === 0"
+                (click)="deleteEvent(tab.name, tab._id)">
+                Delete
+            </button>
+          </div>
+      </mat-tab>
+    </mat-tab-group>
+    </div>
+
+      <div>
+        <h1 class = "custom_header">All Events</h1>
+        <mat-tab-group >
+          <mat-tab *ngFor="let tabA of tabsAll; let index = index" [label]="tabA.name">
+              <p>Description: {{tabA.description}} </p>
+              <p>Event Time: {{tabA.Time}}</p>
+              <p>Link: {{tabA.link}}</p>
+              <p>Location: {{tabA.location}}</p>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+
+      <div>
+        <h1 class = "custom_header">Events I'm Interested In</h1>
+        <mat-tab-group >
+          <mat-tab *ngFor="let event of invitedEvent; let index = index" [label]="event.name">
+              <p>Description: {{event.description}} </p>
+              <p>Event Time: {{event.Time}}</p>
+              <p>Link: {{event.link}}</p>
+              <p>Location: {{event.location}}</p>
+              <div class="btn-holder">
+                <button mat-raised-button mat-button color="warn"
+                class = "deleteClassBtn"
+                [disabled]="tabs === 'undefined'"
+                (click)="removeEvent(event._id)">
+                Remove
+            </button>
+              </div>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+
+      
+      <div>
+        <h1 class = "custom_header">Event Invites</h1>
+        <mat-tab-group >
+          <mat-tab *ngFor="let invite of invites; let index = index" [label]="invite[1]">
+              <p>{{invite[0]}} has invited you to </p>
+              <b>{{invite[1]}}</b>
+              <div class="btn-holder">
+                <button mat-raised-button mat-button color="blue"
+                  class = "deleteClassBtn"
+                  [disabled]="invites.length === 0"
+                  (click)="acceptEventInvite(invite[0], invite[1], invite[2])">
+                Accept
+                </button>
+                <button mat-raised-button mat-button color="blue"
+                  class = "deleteClassBtn"
+                  [disabled]="invites.length === 0"
+                  (click)="declineEventInvite(invite[0], invite[1], invite[2])">
+                  Decline
+                </button>
+              </div>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+      
+
+</div>
+

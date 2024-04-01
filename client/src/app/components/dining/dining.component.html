@@ -1,0 +1,12 @@
+<app-navbar></app-navbar>
+<mat-tab-group (selectedTabChange)="onTabClick($event)">
+    <mat-tab label="Hillenbrand"> Hillenbrand </mat-tab>
+    <mat-tab label="Earhart"> Earhart </mat-tab>
+    <mat-tab label="Wiley"> Wiley </mat-tab>
+    <mat-tab label="Ford"> Ford </mat-tab>
+    <mat-tab label="Windsor"> Windsor </mat-tab>
+</mat-tab-group>
+
+<app-table [data]='tableargs1'></app-table>
+<app-table [data]='tableargs2'></app-table>
+<app-table [data]='tableargs3'></app-table>

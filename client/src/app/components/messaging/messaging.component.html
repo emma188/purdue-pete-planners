@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+
+    <body>
+        <script src="//cdn.jsdelivr.net/npm/socket.io-client@2/dist/socket.io.js"></script>
+
+        <app-navbar></app-navbar>
+
+        <div class="grid-container">
+            <mat-card class="chat-selector">
+                <mat-card-header>
+                    <mat-card-title>Chats:</mat-card-title>
+                </mat-card-header>
+                <ul class="chats">
+                    <li *ngFor="let chat of chats" (click)="onSelect(chat)">
+                      <span class="badge">{{chat}}</span>
+                    </li>
+                </ul>
+            </mat-card>
+            <mat-card class = "chat-messages">
+                <ul class="chat-messages-show-list" id="message-list">
+                </ul>
+            </mat-card>
+            <mat-card class="button-holder">
+                <button class="new-chat" id="new-chat-button" (click)="NewChat()"> Create New Chat </button>
+            </mat-card>
+            <mat-card class="message-editor">
+                <mat-card-content class="text-box">
+                    <form class="editor-form">
+                        <mat-form-field class="editor-full-width">
+                            <mat-label>Message</mat-label>
+                            <input matInput maxlength="256" placeholder="Message" [(ngModel)]="message" [ngModelOptions]="{standalone: true}">
+                        </mat-form-field>
+                    </form>
+                    <button  class="chat-messages-create-button" (click)="SendMessage()"> Send </button>
+                </mat-card-content>
+            </mat-card>
+
+        </div>
+    </body>
+</html>

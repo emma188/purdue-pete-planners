@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "purdue-petes-planner": {
+      "hosting": {
+        "purdue-pete-planners": [
+          "purdue-petes-planner"
+        ]
+      }
+    }
+  }
+}

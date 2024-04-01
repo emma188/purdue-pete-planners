@@ -1,0 +1,76 @@
+<app-navbar></app-navbar>
+
+
+<!-- <mat-tab-group (selectedTabChange)="onTabClick($event)">
+  <mat-tab label="CS 381"></mat-tab>
+  <mat-tab label="CS 407"></mat-tab>
+</mat-tab-group> -->
+
+
+<mat-tab-group (selectedTabChange)="onTabClick($event)">
+  <mat-tab label="CS 381"></mat-tab>
+  <mat-tab label="CS 407"></mat-tab>
+  <mat-tab label="CS 373"></mat-tab>
+  <mat-tab label="CS 471"></mat-tab>
+  <mat-tab label="prove of change"></mat-tab>
+</mat-tab-group>
+
+
+<app-table [data]='tableargs4' (toFriendPage)='refresh()' *ngIf="isMemeber">Forth Study Group</app-table>
+
+<div class="form-group" *ngIf="isMemeber">
+  <button type="button" (click)="announcementexpand=!announcementexpand" *ngIf="!announcementexpand">Press to Enter Announcement</button>
+  <button type="button" (click)="announcementexpand=!announcementexpand" *ngIf="announcementexpand">Go Back</button>
+  <form novalidate class="simple-form" *ngIf="announcementexpand" name="simpleform">
+    <label>New Announcement: <input #box /></label><br />
+    <button type="button" (click)="clickedAnnouncesubmit(box.value)">Submit Information</button>
+  </form>
+
+</div>
+
+<app-table [data]='tableargs6' (toFriendPage)='refresh()'>Second Study Group</app-table>
+
+<div class="form-group" *ngIf="isMemeber">
+  <button type="button" (click)="commentexpand=!commentexpand" *ngIf="!commentexpand">Press to Enter Comment</button>
+  <button type="button" (click)="commentexpand=!commentexpand" *ngIf="commentexpand">Go Back</button>
+  <form novalidate class="simple-form" *ngIf="commentexpand">
+    <label>New Comment: <input #box2 /></label><br />
+    <button type="button" (click)="clickedCommentsubmit(box2.value)">Submit Information</button>
+  </form>
+</div>
+
+<app-table [data]='tableargs1' (toFriendPage)='refresh()'>First Study Group</app-table>
+
+<div class="form-group" *ngIf="isMemeber">
+  <button type="button" (click)="expanded=!expanded">Invite Users to Study Group</button>
+  <div class="form-group" *ngIf="expanded">
+
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label>Search For Users</mat-label>
+        <input matInput placeholder="Enter name here" #search>
+      </mat-form-field>
+      <!--    <app-table *ngIf="displayStudyInvite" [data]='tableargs5'></app-table>-->
+
+    </form>
+    <button type="button" (click)="getSearchValue(search.value)">Search!</button>
+    <div class="form-group" *ngIf="enteredname">
+      <tr><button mat-raised-button (click)="clickedBacktoName()" >Go Back</button></tr>
+      <tr></tr>
+      <tr><label *ngIf="!isFriend">{{search.value}} does not exist</label>
+        <label *ngIf="isFriend">{{search.value}} is a valid user. Press the button below to invite him to {{this.curStudyGroup}}</label></tr>
+      <tr></tr>
+      <tr><button mat-raised-button (click)="clickedStudyRequest(search.value)" *ngIf="isFriend">Invite to study group</button></tr>
+
+    </div>
+  </div>
+</div>
+
+<app-table [data]='tableargs2' (toFriendPage)='refresh()' *ngIf="isMemeber">Second Study Group</app-table>
+<app-table [data]='tableargs3' (toFriendPage)='refresh()' *ngIf="isMemeber"></app-table>
+<tr><mat-card-title class="user-data">Meeting time: {{this.tablemeetingtime | date:"MM/dd/yyyy 'at' h:mma"}}</mat-card-title></tr>
+
+<tr>
+  <button id="join" type="button" (click)="clickedjoin(this.user)" class="btn btn-primary" *ngIf="!isMemeber">
+    Join
+  </button></tr>

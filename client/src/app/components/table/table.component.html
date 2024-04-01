@@ -1,0 +1,131 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container *ngIf="displayFriendResult" matColumnDef="friend">
+      <th mat-header-cell *matHeaderCellDef> Friends </th>
+      <td mat-cell *matCellDef="let friend"> {{friend}} </td>
+      <button></button>
+    </ng-container>
+
+    <ng-container *ngIf="displaySearchResult" matColumnDef="searchResult">
+      <th mat-header-cell *matHeaderCellDef> Search Results </th>
+      <td mat-cell *matCellDef="let searchResult"> {{searchResult}} </td>
+      <button></button>
+    </ng-container>
+
+    <ng-container *ngIf="displaySearchResult" matColumnDef="sendfr">
+      <th mat-header-cell *matHeaderCellDef> Action </th>
+      <td mat-cell *matCellDef="let searchResult">
+        <button mat-raised-button (click)="clickedFriendRequest(searchResult)" >Send Request</button>
+      </td>
+    </ng-container>
+
+    <ng-container *ngIf="displayTagResult" matColumnDef="searchTagResult">
+      <th mat-header-cell *matHeaderCellDef><b> Class </b></th>
+      <td mat-cell *matCellDef="let searchTagResult"> {{searchTagResult}} </td>
+      <button></button>
+    </ng-container>
+
+    <ng-container *ngIf="displayTagResult" matColumnDef="searchTagNameResult">
+      <th mat-header-cell *matHeaderCellDef><b> Class Name</b></th>
+      <td mat-cell *matCellDef="let searchTagNameResult"> {{searchTagNameResult}} </td>
+      <button></button>
+    </ng-container>
+
+    <ng-container *ngIf="displayUserClasses" matColumnDef="userClassResult">
+      <th mat-header-cell *matHeaderCellDef><b> User Classes List </b></th>
+      <td mat-cell *matCellDef="let userClassResult"> {{userClassResult}} </td>
+      <button></button>
+    </ng-container>
+
+
+    <ng-container *ngIf="displayMealResult" matColumnDef="mealResult">
+      <th mat-header-cell *matHeaderCellDef> {{bld}} </th>
+      <td mat-cell *matCellDef="let mealResult"> {{mealResult.Name}} </td>
+      <button></button>
+    </ng-container>
+
+    <ng-container *ngIf="displayFriendRequest" matColumnDef="friendrequest">
+      <th mat-header-cell *matHeaderCellDef> Friend Requests </th>
+      <td mat-cell *matCellDef="let fr"> {{fr}} </td>
+      <button></button>
+    </ng-container>
+
+    <ng-container *ngIf="displayFriendRequest" matColumnDef="accept">
+      <th mat-header-cell *matHeaderCellDef>  </th>
+      <td mat-cell *matCellDef="let fr">
+        <button mat-raised-button (click)="clickedAccept(fr)" >Accept</button>
+      </td>
+    </ng-container>
+
+    <ng-container *ngIf="displayFriendRequest" matColumnDef="decline">
+      <th mat-header-cell *matHeaderCellDef>  </th>
+      <td mat-cell *matCellDef="let fr">
+        <button mat-raised-button (click)="clickedDecline(fr)" >Decline</button>
+      </td>
+    </ng-container>
+
+    <ng-container *ngIf="displayMemberRequest" matColumnDef="member">
+      <th mat-header-cell *matHeaderCellDef> Member </th>
+      <td mat-cell *matCellDef="let member"> {{member}} </td>
+      <button></button>
+    </ng-container>
+
+    <ng-container *ngIf="displayChatRoomRequest" matColumnDef="chat_room">
+      <th mat-header-cell *matHeaderCellDef> Chat Room </th>
+      <td mat-cell *matCellDef="let chat_room"> {{chat_room}} </td>
+      <button></button>
+    </ng-container>
+
+    <ng-container *ngIf="displayStudyRoomRequest" matColumnDef="study_room">
+      <th mat-header-cell *matHeaderCellDef> Study Room </th>
+      <td mat-cell *matCellDef="let study_room"> {{study_room}} </td>
+      <button></button>
+    </ng-container>
+
+    <ng-container *ngIf="displayAnnouncement" matColumnDef="announcement">
+      <th mat-header-cell *matHeaderCellDef> Announcement </th>
+      <td mat-cell *matCellDef="let announcement"> {{announcement}} </td>
+      <button></button>
+    </ng-container>
+
+    <ng-container *ngIf="displayComments" matColumnDef="Comments">
+      <th mat-header-cell *matHeaderCellDef> Comments </th>
+      <td mat-cell *matCellDef="let Comments"> {{Comments}} </td>
+      <button></button>
+    </ng-container>
+
+    <ng-container *ngIf="displayStudyInvite" matColumnDef="studyinvite">
+      <th mat-header-cell *matHeaderCellDef> Search Results </th>
+      <td mat-cell *matCellDef="let studyinvite"> {{studyinvite}} </td>
+      <button></button>
+    </ng-container>
+
+    <ng-container *ngIf="displayStudyInvite" matColumnDef="sendstudyinv">
+      <th mat-header-cell *matHeaderCellDef> Action </th>
+      <td mat-cell *matCellDef="let studyinvite">
+        <button mat-raised-button (click)="clickedStudyRequest(studyinvite)" >Send Request</button>
+      </td>
+    </ng-container>
+
+    <!-- <ng-container *ngIf="displayIncFR" matColumnDef="frResult">
+      <th mat-header-cell *matHeaderCellDef> {{bld}} </th>
+      <td mat-cell *matCellDef="let mealResult"> {{mealResult.Name}} </td>
+      <button></button>
+    </ng-container> -->
+
+    <ng-container *ngIf="displayBanResult" matColumnDef="banResult">
+      <th mat-header-cell *matHeaderCellDef> Search Results </th>
+      <td mat-cell *matCellDef="let searchResult"> {{searchResult.user_name}} </td>
+      <button></button>
+    </ng-container>
+
+    <ng-container *ngIf="displayBanResult" matColumnDef="banstatus">
+      <th mat-header-cell *matHeaderCellDef> Ban/Unban </th>
+      <td mat-cell *matCellDef="let searchResult">
+        <button mat-raised-button (click)="clickedBan(searchResult)">{{searchResult.banned || "Ban"}}</button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<mat-paginator [pageSizeOptions]="[5, 10, 20]"></mat-paginator>

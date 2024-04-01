@@ -1,0 +1,75 @@
+<app-navbar></app-navbar>
+
+
+<!-- <mat-card class="main-left">
+  <mat-card-header>
+    <div ></div>
+    <mat-card-title>Friend Request</mat-card-title>
+
+  </mat-card-header>
+  <mat-card-content>
+    <mat-list>
+      <mat-divider></mat-divider>
+      <mat-list-item>Emma118</mat-list-item>
+      <div><button id="basic1" type="button" mat-button >
+        accept
+      </button>
+      <button id="basic2" type="button" mat-button >
+        deny
+      </button>
+      </div>
+      <mat-divider></mat-divider>
+      <mat-list-item>David</mat-list-item>
+      <div><button id="basic1" type="button" mat-button >
+        accept
+      </button>
+        <button id="basic2" type="button" mat-button >
+          deny
+        </button>
+      </div>
+      <mat-divider></mat-divider>
+      <mat-list-item>Jhon</mat-list-item>
+      <div><button id="basic1" type="button" mat-button >
+        accept
+      </button>
+        <button id="basic2" type="button" mat-button >
+          deny
+        </button>
+      </div>
+      <mat-divider></mat-divider>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
+
+<p>                              </p>
+
+<mat-card class="main-ws">
+  <mat-card-header>
+
+    <mat-card-title>Your friends</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-list>
+      <mat-divider></mat-divider>
+      <mat-list-item>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-subtitle class="user-data">zhenhuan</mat-card-subtitle>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-subtitle class="user-data">zhenhuan</mat-card-subtitle>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-subtitle class="user-data">zhenhuan</mat-card-subtitle>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+    </mat-list>
+  </mat-card-content> -->
+
+<app-table [data]='tableargs' (toFriendPage)='refresh()'></app-table>
+<app-table [data]='friendRequestArgs' (toFriendPage)='refresh()'></app-table>
+
+
